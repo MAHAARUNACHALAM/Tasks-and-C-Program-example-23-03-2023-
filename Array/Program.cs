@@ -16,6 +16,22 @@ namespace console1
 {
     class ArrayProblem
     {
+        public static void SeparateEvenOdd(int[] a)
+        {
+            int[] c=new int[a.Length];
+            int[] d=new int[a.Length];
+            foreach(int i in a)
+            {
+                if (i % 2 == 0)
+                {
+                    c.Append(a[i]);
+                }
+                else
+                {
+                    d.Append(a[i]);
+                }
+            }
+        }
 
         public static void DuplicateCount(int[] a)
         {
@@ -97,7 +113,7 @@ namespace console1
                     MergeArray(a,b);
                     break;
                 case 3:
-                   // SeparateEvenOdd();
+                   SeparateEvenOdd(a);
                     break;
                 default: goto end;
             }
