@@ -1,12 +1,7 @@
 ﻿//Common Programs
 
-//Write a program in C# Sharp to count a total number of duplicate elements in an array.
+//Write a C# Sharp program to exchange the first and last characters in a given string and return the new string
 
-//Write a program in C# Sharp to merge two arrays of same size sorted in ascending order.
-//Write a program in C# Sharp to separate odd and even integers in separate arrays
-
-
-//Write a program in C# Sharp to count a total number of duplicate elements in an array.
 
 using System.Collections.Immutable;
 using System.Runtime.Serialization.Formatters;
@@ -16,111 +11,52 @@ namespace console1
 {
     class ArrayProblem
     {
-        public static void SeparateEvenOdd(int[] a)
-        {
-            int[] c=new int[a.Length];
-            int[] d=new int[a.Length];
-            foreach(int i in a)
-            {
-                if (i % 2 == 0)
-                {
-                    c.Append(a[i]);
-                }
-                else
-                {
-                    d.Append(a[i]);
-                }
-            }
-        }
-
-        public static void DuplicateCount(int[] a)
-        {
-            if (a.Length != 0)
-            {
-                //To Find the number of duplicate elements
-                var groups = a.GroupBy(v => v);
-                int duplicatecount = 0;
-                foreach (var group in groups)
-                    if (group.Count() > 1)
-                    {
-                        Console.WriteLine("Value {0} has {1} items", group.Key, group.Count());
-                        duplicatecount++;
-                    }
-                Console.WriteLine("Total number of duplicate count is" + duplicatecount);
-
-            }
-        }
-        public static void MergeArray(int[] a, int[] b)
-        {
-            int[] c=new int[10];
-            foreach (var c2 in b)
-            {
-                c.Append(c2);
-            }
-            foreach (var c2 in a)
-            {
-                c.Append(c2);
-            }
-            Array.Sort(c);
-            foreach (var c1 in c)
-            {
-                Console.WriteLine(c1.ToString());
-            }
-
-        }
 
         static void Main(String[] args)
         {
-            int[] a = new int[5];
-            int[] b = new int[5];
-            int[] c = new int[5];
-            int[] d = new int[5];
-            Console.WriteLine("Do You want to enter the array 1 or 2");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            if(choice == 1) {
-                for(int i=0; i<5; i++)
-                {
-                    a[i]= Convert.ToInt32(Console.ReadLine());
+
+            string str = "Maha";
+            string newStr = str.Substring(str.Length - 1) + str.Substring(1, str.Length - 2) + str.Substring(0, 1);
+            Console.WriteLine(newStr);
+
+            //Write a C# Sharp program to create a new string with the last char added at the front and back of a given string of length 1 or more.
+            string str1 = "Maha";
+            if(str1.Length>1) { 
+            string newStr1 = str1.Substring(str1.Length - 1) + str1 + str1.Substring(str1.Length - 1);
+            Console.WriteLine(newStr1);
                 }
-            }
-            else if(choice == 2)
-            {
-                Console.WriteLine("Enter array 1");
-                for (int i = 0; i < 5; i++)
-                {
-                    a[i] = Convert.ToInt32(Console.ReadLine());
-                }
-                Console.WriteLine("Enter array 2");
-                for (int i = 0; i < 5; i++)
-                {
-                    a[i] = Convert.ToInt32(Console.ReadLine());
-                }
-            }
             else
             {
-                Console.WriteLine("Enter a valid choice");
-                goto end;
+                Console.WriteLine("String length is less than or equal to 1");
             }
-            Console.WriteLine("Enter operation Do you want to perform\n1.Count Duplicate\n2.Merge Array\n3.Separate even and odd");
-            choice= Convert.ToInt32(Console.ReadLine());
-            
-            switch(choice)
+            //Write a C# Sharp program to check if a string 'ok' appears in a given string. If it appears return a string without 'ok' otherwise return the original string.
+            string str2 = "Mahaokok";
+            //without using Replace
+           while(str2.Contains("ok"))
             {
-                case 1:
-                    DuplicateCount(a);
-                    break;
-                case 2:
-                    MergeArray(a,b);
-                    break;
-                case 3:
-                   SeparateEvenOdd(a);
-                    break;
-                default: goto end;
+                string newStr2 = str2.Substring(0, str2.IndexOf("ok")) + str2.Substring(str2.IndexOf("ok") + 2);
+                str2 = newStr2;
+               
             }
-            end:
-            Console.WriteLine("Program ended");
-           
+            Console.WriteLine(str2);
+            /* if (str2.Contains("ok"))
+             {
+                 string newStr2 = str2.Replace("ok", "");
+                 Console.WriteLine(newStr2);
+             }
+             else
+             {
+                 Console.WriteLine(str2);
+             } */
+
+
         }
 
     }
 }
+
+/*What is IEnumerable in C#?
+What is Constructor Chaining in C#?
+Can you use a "this" command within a static method? Why?
+Name some access modifiers available in C#
+Why does C# not support multiple inheritances?*/
